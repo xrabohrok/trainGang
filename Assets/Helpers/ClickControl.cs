@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class ClickControl : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class ClickControl : MonoBehaviour
     bool valid = false;
     public bool validPoint { get { return valid; } private set{ valid = value;} }
     public GameObject thingClicked { get; set; }
-    public string limitToLayerNamed;
+    public List<string> limitToLayerNamed;
 
     // Use this for initialization
     void Start()
@@ -24,11 +24,13 @@ public class ClickControl : MonoBehaviour
 
         //limit to one layer
         int layermaskNum = 0;
-        if(!string.IsNullOrEmpty(limitToLayerNamed))
+        int layerMask = 0;
+        foreach(var layername in limitToLayerNamed)
         {
-            layermaskNum = LayerMask.NameToLayer(limitToLayerNamed);
+            layermaskNum = LayerMask.NameToLayer(layername);
+            layerMask |= 1 << layermaskNum;
         }
-        int layerMask = 1 << layermaskNum;
+        
 
         if (Physics.Raycast(ray, out infoOut, 500, layerMask))
         {
