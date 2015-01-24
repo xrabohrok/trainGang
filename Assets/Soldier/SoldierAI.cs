@@ -26,4 +26,9 @@ public class SoldierAI : MonoBehaviour {
     {
 
     }
+
+    public void recieveOrderTo(Vector3 location)
+    {
+
+    }
 }

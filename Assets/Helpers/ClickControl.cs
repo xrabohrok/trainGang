@@ -9,6 +9,7 @@ public class ClickControl : MonoBehaviour
     bool valid = false;
     public bool validPoint { get { return valid; } private set{ valid = value;} }
     public GameObject thingClicked { get; set; }
+    public Vector3 clickedPoint { get; set; }
     public List<string> limitToLayerNamed;
 
     // Use this for initialization
@@ -36,6 +37,7 @@ public class ClickControl : MonoBehaviour
         {
             LastGoodPoint = infoOut.point;
             thingClicked = infoOut.collider.gameObject;
+            clickedPoint = infoOut.point;
             valid = true;
         }
         else

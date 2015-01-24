@@ -60,4 +60,20 @@ public class SoldierSwarm : MonoBehaviour {
         }
     }
 
+    private void handleOrderDelegation()
+    {
+        if (Input.GetMouseButtonUp(1))
+        {
+            //interestingly, we want to *not* click a soldier this way
+            var mousedSoldier = soldierMouse.thingClicked.GetComponent<SoldierAI>();
+            if (mousedSoldier.GetComponent<SoldierAI>() == null)
+            {
+                foreach(var soldier in selectedSoliers)
+                {
+                    soldier.recieveOrderTo(soldierMouse.clickedPoint);
+                }
+            }
+        }
+    }
+
 }
