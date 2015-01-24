@@ -23,6 +23,7 @@ public class SoldierSwarm : MonoBehaviour {
 	    if(soldierMouse.validPoint)
         {
             handleSoldierSelection();
+            handleOrderDelegation();
         }
 	}
 
@@ -49,12 +50,13 @@ public class SoldierSwarm : MonoBehaviour {
         if (Input.GetMouseButton(0))
         {
             var mousedSoldier = soldierMouse.thingClicked.GetComponent<SoldierAI>();
-            if (mousedSoldier.GetComponent<SoldierAI>() != null)
+            if (mousedSoldier != null)
             {
                 if (!selectedSoliers.Contains(mousedSoldier))
                 {
                     selectedSoliers.Add(mousedSoldier);
                     mousedSoldier.wasSelected();
+                    Debug.Log("Soldier selected");
                 }
             }
         }
@@ -66,11 +68,12 @@ public class SoldierSwarm : MonoBehaviour {
         {
             //interestingly, we want to *not* click a soldier this way
             var mousedSoldier = soldierMouse.thingClicked.GetComponent<SoldierAI>();
-            if (mousedSoldier.GetComponent<SoldierAI>() == null)
+            if (mousedSoldier == null)
             {
                 foreach(var soldier in selectedSoliers)
                 {
                     soldier.recieveOrderTo(soldierMouse.clickedPoint);
+                    Debug.Log("Set orders to " + selectedSoliers.Count.ToString());
                 }
             }
         }
