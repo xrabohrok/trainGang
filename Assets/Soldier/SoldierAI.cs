@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class SoldierAI : MonoBehaviour {
 
+
+
+    
 	// Use this for initialization
 	void Start () {
 	
@@ -12,4 +16,14 @@ public class SoldierAI : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void wasSelected()
+    {
+
+    }
+
+    public void wasDeSelected()
+    {
+
+    }
 }
