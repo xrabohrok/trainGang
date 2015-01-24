@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemyMove : MonoBehaviour {
-	
+public class EnemyMovement : MonoBehaviour {
+
 	//public ArrayList points = new ArrayList();
 	public float speed = 1.0F;
 	public List<Vector3> positions = new List<Vector3>();
@@ -16,17 +16,15 @@ public class EnemyMove : MonoBehaviour {
 	private Vector3 startMarker;
 	private Vector3 endMarker;
 	private bool getNextPosition;
-	
+
 	// Use this for initialization
 	void Start () {
 		positionIT = new Queue<Vector3>(positions);
 		getNextPosition = true;
 	}
 	
-	
 	// Update is called once per frame
 	void Update () {
-		
 		if (getNextPosition && positionIT.Count>0) {
 			Debug.Log ("getting next position");
 			// get the next position from the position iterator.
