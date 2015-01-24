@@ -26,7 +26,6 @@ public class EnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (getNextPosition && positionIT.Count>0) {
-			Debug.Log ("getting next position");
 			// get the next position from the position iterator.
 			endMarker = positionIT.Dequeue();
 			startMarker = this.transform.position;
@@ -35,7 +34,6 @@ public class EnemyMovement : MonoBehaviour {
 			getNextPosition = false;
 		}
 		else if (!getNextPosition){
-			Debug.Log ("moving to next position");
 			// lerp to the current if there's still positions to lerp to.
 			
 			float distCovered = (Time.time - startTime) * speed;
@@ -43,8 +41,6 @@ public class EnemyMovement : MonoBehaviour {
 			this.transform.position = Vector3.Lerp (startMarker, endMarker, fracJourney);
 			if (this.transform.position == endMarker)
 				getNextPosition = true;
-			Debug.Log ("distCovered: " + distCovered);
-			Debug.Log ("fracJourney: " + fracJourney);
 		}
 	}
 }
