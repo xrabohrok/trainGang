@@ -33,18 +33,14 @@ public class Spawner : MonoBehaviour {
 
         if (!finished)
         {
-            Debug.Log("notfinished");
             timeSinceLastWave += Time.deltaTime;
             if (timeSinceLastWave > waveGapTime )
             {
 
 
-                Debug.Log("ready for wave");
                 timeSinceLastSpawn = timeSinceLastSpawn + Time.deltaTime;
-                Debug.Log(timeSinceLastSpawn);
                 if (timeSinceLastSpawn > spawnGapTime)
                 {
-                    Debug.Log("ready for individual");
                     timeSinceLastSpawn = 0;
                     GameObject.Instantiate(spawnTemplate);
                     spawnedThisWave++;
