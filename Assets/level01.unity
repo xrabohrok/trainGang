@@ -157,6 +157,7 @@ GameObject:
   - 135: {fileID: 1054714662}
   - 54: {fileID: 1054714667}
   - 114: {fileID: 1054714668}
+  - 114: {fileID: 1054714669}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Soldier
@@ -250,9 +251,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1054714661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76ea2995681f3f94494331ceda124bc6, type: 3}
+  m_Script: {fileID: 11500000, guid: 20147f1bd406dd04e805f94c9e916f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  health: 2
+--- !u!114 &1054714669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054714661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c555e0bd772ee4989082a6a45e2dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  projectileSpeed: 5
+  projectile: {fileID: 155776, guid: 754318c0a947df34eaa1b3c22704536f, type: 2}
 --- !u!1 &1618281576
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,9 +285,10 @@ GameObject:
   - 114: {fileID: 1618281582}
   - 135: {fileID: 1618281583}
   - 114: {fileID: 1618281584}
+  - 114: {fileID: 1618281585}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,6 +398,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 1
+  projectileSpeed: 5
+  projectile: {fileID: 151098, guid: b365e4e81266582428a93cbe592dd6b8, type: 2}
+--- !u!114 &1618281585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1618281576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20147f1bd406dd04e805f94c9e916f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  health: 5
 --- !u!1 &1776402000
 GameObject:
   m_ObjectHideFlags: 0
