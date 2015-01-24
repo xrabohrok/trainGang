@@ -74,6 +74,60 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &178791083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 178791086}
+  - 114: {fileID: 178791085}
+  - 114: {fileID: 178791084}
+  m_Layer: 0
+  m_Name: SoldierController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &178791084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178791083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9fd5d937d43d549968b0d78e92d433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &178791085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178791083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72cff4035c2dcbd4483535a22fff7956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitToLayerNamed:
+  - Soldier
+  - ClickControl
+--- !u!4 &178791086
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178791083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.19999981, y: 2.52999997, z: 6.71000004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &492843877
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +141,7 @@ GameObject:
   - 23: {fileID: 492843879}
   - 114: {fileID: 492843878}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: workPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72cff4035c2dcbd4483535a22fff7956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitToLayerNamed: ClickControl
+  limitToLayerNamed: []
 --- !u!23 &492843879
 Renderer:
   m_ObjectHideFlags: 0
@@ -231,6 +285,7 @@ GameObject:
   - 92: {fileID: 1757387024}
   - 124: {fileID: 1757387023}
   - 81: {fileID: 1757387022}
+  - 114: {fileID: 1757387027}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -303,6 +358,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1757387027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1757387021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d19c4578b907634daefd0de1bdda216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRate: -5
+  borderEdge: 7
 --- !u!1 &1984011628
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,8 +383,8 @@ GameObject:
   - 65: {fileID: 1984011631}
   - 23: {fileID: 1984011630}
   - 114: {fileID: 1984011629}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 9
+  m_Name: TestSoldier2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,10 +398,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1984011628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72cff4035c2dcbd4483535a22fff7956, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1769d07ce30d84184d221357e33c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitToLayerNamed: ClickControl
+  speed: 1
+  stopDist: .100000001
 --- !u!23 &1984011630
 Renderer:
   m_ObjectHideFlags: 0
@@ -397,8 +466,8 @@ GameObject:
   - 65: {fileID: 2100984908}
   - 23: {fileID: 2100984907}
   - 114: {fileID: 2100984906}
-  m_Layer: 4
-  m_Name: Cube
+  m_Layer: 9
+  m_Name: TestSoldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -412,10 +481,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2100984905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72cff4035c2dcbd4483535a22fff7956, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1769d07ce30d84184d221357e33c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitToLayerNamed: ClickControl
+  speed: 1
+  stopDist: .100000001
 --- !u!23 &2100984907
 Renderer:
   m_ObjectHideFlags: 0
