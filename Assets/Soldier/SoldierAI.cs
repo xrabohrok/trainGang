@@ -8,7 +8,7 @@ public class SoldierAI : MonoBehaviour {
     private bool selected = false;
     private bool onTheMove = false;
     public float speed = 1.0f;
-    public float stopDist = 3.0f;
+    public float stopDist = .1f;
     Vector3 targetLocation;
     
 	// Use this for initialization
