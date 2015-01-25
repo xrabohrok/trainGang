@@ -28,9 +28,9 @@ public class unitController : MonoBehaviour {
         timeSinceLastFire += Time.deltaTime;
 		
 		if (currentTarget != null) {
-            Debug.Log(currentTarget.name.ToString());
             if (timeSinceLastFire >= attackSpeed)
             {
+                Debug.Log("FIRE");
 				var shot = (GameObject) Instantiate (projectile, this.transform.position, this.transform.rotation);
 				shot.GetComponent<HomingProjectile> ().ttl = 5.0F; 
 				shot.GetComponent<HomingProjectile>().target = this.target;

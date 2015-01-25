@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class SoldierAI : MonoBehaviour {
+public class SoldierAI : MonoBehaviour, Ishootable {
 
 
     private bool selected = false;
@@ -55,4 +55,7 @@ public class SoldierAI : MonoBehaviour {
             onTheMove = true;
         }
     }
+
+    void takeDamage(int damage)
+    { }
 }

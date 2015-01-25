@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour, Ishootable {
 
 	public float attackSpeed = 1.0F;
 	public float projectileSpeed = 1.0F;
@@ -24,11 +24,14 @@ public class EnemyController : MonoBehaviour {
 
 		if (attacking) {
 			if (x >= attackSpeed) {
-				var shot = (GameObject) Instantiate (projectile, this.transform.position, this.transform.rotation);
-				shot.GetComponent<projectile> ().ttl = 5.0F; 
-				shot.GetComponent<projectile>().target = this.target;
-				shot.GetComponent<projectile>().speed = this.projectileSpeed;
-				shot.GetComponent<projectile>().damage = this.GetComponent<Stats>().damage;
+                var shot = (GameObject)Instantiate(projectile, this.transform.position, this.transform.rotation);
+                var projectile = shot.GetComponent<projectile>();
+                projectile.ttl = 5.0F;
+                projectile.target = this.target;
+                projectile.speed = this.projectileSpeed;
+                projectile.damage = this.GetComponent<Stats>().damage;
+                projectile.shooter = this.gameObject;
+                projectile.shooterTag = this.tag;
 				x = 0.0F;
 			}
 		}
@@ -50,5 +53,7 @@ public class EnemyController : MonoBehaviour {
 			this.target = null;
 		}
 	}
+
+    void takeDamage();
 
 }

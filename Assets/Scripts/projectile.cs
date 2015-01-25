@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class projectile : MonoBehaviour {
 
@@ -7,7 +7,9 @@ public class projectile : MonoBehaviour {
 	public float ttl = 1.0F;
 	public float speed = 1.0F;
 	public GameObject target;
+    public GameObject shooter;
 	public int damage = 1;
+    public string shooterTag;
 
 	//This is the distance that's allowed for a collision.
 	public float distanceThreshold = 0.5F;
@@ -29,12 +31,15 @@ public class projectile : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		foreach (ContactPoint contact in collision.contacts) {
-			if(this.target != null && contact.otherCollider.CompareTag(this.target.tag)){
-				contact.otherCollider.gameObject.GetComponent<Stats>().hit (this.damage);
-				Destroy (this.gameObject);
-			}
-		}
+
+        if(collision.gameObject.tag != shooterTag)
+        {
+            if(collision.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+            {
+                collision.gameObject.GetComponent<EnemyController>().takeDamage(damage);
+                die();
+            }
+        }
 	}
 			
 			// Update is called once per frame
@@ -43,13 +48,6 @@ public class projectile : MonoBehaviour {
 		if (Time.time - startTime >= ttl) {
 			Destroy (this.gameObject);
 		}
-
-		// 
-		//if (Vector3.Distance (this.transform.position, target.transform.position) <= distanceThreshold) {
-			//this.target.hit(damage);
-			// TODO: Special Effects
-		//	Destroy (this.gameObject);
-		//}
 
 		//move to the target.
 		if(this.transform.position != endMarker){
@@ -62,4 +60,10 @@ public class projectile : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 	}
+
+    void die()
+    {
+        //maybe particles? //score? //money?
+        GameObject.Destroy(this);
+    }
 }
