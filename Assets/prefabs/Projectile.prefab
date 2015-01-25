@@ -85,11 +85,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e078ebfc076ae7443a50666ef097960b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ttl: 1
-  speed: 1
+  ttl: 5
+  speed: 5
   target: {fileID: 0}
+  shooter: {fileID: 0}
   damage: 1
-  distanceThreshold: .5
+  shooterTag: 
+  homing: 0
 --- !u!135 &13556708
 SphereCollider:
   m_ObjectHideFlags: 1

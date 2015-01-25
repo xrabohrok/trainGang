@@ -34,9 +34,13 @@ public class projectile : MonoBehaviour {
         {
             if(collision.gameObject.layer == LayerMask.NameToLayer("Enemies"))
             {
-                collision.gameObject.GetComponent<EnemyController>().takeDamage(damage);
-                die();
+                collision.gameObject.GetComponent<unitController>().takeDamage(damage);
             }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("Soldier"))
+            {
+                collision.gameObject.GetComponent<SoldierAI>().takeDamage(damage);
+            }
+            die();
         }
 	}
 			

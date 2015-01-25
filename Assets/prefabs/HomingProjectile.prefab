@@ -12,6 +12,7 @@ GameObject:
   - 33: {fileID: 3355776}
   - 54: {fileID: 5455776}
   - 135: {fileID: 13555776}
+  - 114: {fileID: 11484924}
   - 114: {fileID: 11401444}
   m_Layer: 0
   m_Name: HomingProjectile
@@ -76,7 +77,7 @@ Rigidbody:
   m_CollisionDetection: 0
 --- !u!114 &11401444
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155776}
@@ -90,6 +91,24 @@ MonoBehaviour:
   target: {fileID: 0}
   damage: 1
   distanceThreshold: .5
+--- !u!114 &11484924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e078ebfc076ae7443a50666ef097960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ttl: 5
+  speed: 5
+  target: {fileID: 0}
+  shooter: {fileID: 0}
+  damage: 1
+  shooterTag: 
+  homing: 1
 --- !u!135 &13555776
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class unitController : MonoBehaviour {
+public class unitController : MonoBehaviour, Ishootable {
 
 	public float attackSpeed = 1.0F;
 	public float projectileSpeed = 1.0F;
+    public string enemyTag;
 	public GameObject projectile;
     public Transform gunBarrel;
 	public float rangeSQRT = 7.0f;
@@ -32,27 +33,24 @@ public class unitController : MonoBehaviour {
 		if (currentTarget != null) {
             if (timeSinceLastFire >= attackSpeed)
             {
-                Debug.Log("FIRE");
 				var shot = (GameObject) Instantiate (projectile, gunBarrel.transform.position, this.transform.rotation);
                 shot.GetComponent<projectile>().target = currentTarget;
                 timeSinceLastFire = 0;
 			}
 		}
-        else
-        {
-            Debug.Log("nothing found");
-        }
+
 	}
 
 	//returns the closest obj with given tag.
 	GameObject FindClosestEnemy() {
 
-		var army = GameObject.FindGameObjectsWithTag("Enemy");
+		var army = GameObject.FindGameObjectsWithTag(enemyTag);
 		GameObject closest = null;
         float distance = rangeSQRT;
 
 		foreach (var enemy in army) 
         {
+            Debug.Log(enemy);
             Vector3 diff = enemy.transform.position - transform.position;
 			float curDistance = diff.sqrMagnitude;
 			if (curDistance < distance) 
@@ -69,5 +67,8 @@ public class unitController : MonoBehaviour {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Mathf.Sqrt(rangeSQRT));
     }
+
+    public void takeDamage(int damage)
+    { }
 
 }
