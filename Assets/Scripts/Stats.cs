@@ -7,7 +7,7 @@ public class Stats : MonoBehaviour {
 	public int health = 1;
 
 	private int curHealth;
-	private bool dead = false;
+	public bool dead = false;
 
 	// Use this for initialization
 	void Start () {

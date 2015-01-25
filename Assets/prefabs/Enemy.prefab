@@ -12,6 +12,7 @@ GameObject:
   - 65: {fileID: 6558272}
   - 23: {fileID: 2358272}
   - 114: {fileID: 11458270}
+  - 114: {fileID: 11493228}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -127,6 +128,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f942ecefa77ff64d9f7174ce31be8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11493228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba794c43e170eb469e3a7a52389a65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  positions:
+  - {x: 17.8899994, y: 2.67000008, z: -19.5100002}
+  - {x: 17.8899994, y: 2.67000008, z: 29.4099998}
+  - {x: 8.56999969, y: 2.67000008, z: 37.0900002}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

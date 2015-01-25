@@ -7,14 +7,14 @@ public class ScrollingTexture : MonoBehaviour {
     public Vector2 speed;
 
 	// Use this for initialization
-    MeshRenderer renderer;
+    MeshRenderer rendererthing;
 	void Start () {
-        renderer = this.GetComponent<MeshRenderer>();
+        rendererthing = this.GetComponent<MeshRenderer>();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        renderer.material.SetTextureOffset("_MainTex", renderer.material.GetTextureOffset("_MainTex") + Time.deltaTime * speed);
+        rendererthing.material.SetTextureOffset("_MainTex", renderer.material.GetTextureOffset("_MainTex") + Time.deltaTime * speed);
 	}
 }

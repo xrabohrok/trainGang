@@ -23,8 +23,6 @@ public class unitController : MonoBehaviour, Ishootable {
             throw new System.Exception("no gunBarrel defined!");
 
         anim = this.GetComponentInChildren<Animation>();
-        if (anim == null)
-            throw new System.Exception("No animator!");
 	}
 	
 	// Update is called once per frame
@@ -39,11 +37,11 @@ public class unitController : MonoBehaviour, Ishootable {
 		if (currentTarget != null) {
             if (timeSinceLastFire >= attackSpeed)
             {
-				var shot = (GameObject) Instantiate (projectile, gunBarrel.transform.position, this.transform.rotation);
+				var shot = (GameObject) Instantiate (projectile, gunBarrel.transform.position,projectile.transform.rotation);
                 shot.GetComponent<projectile>().target = currentTarget;
                 timeSinceLastFire = 0;
-
-                anim.Blend("Fire", .5f);
+                if(anim != null)
+                    anim.Blend("Fire", .5f);
 			}
 		}
 
@@ -58,7 +56,7 @@ public class unitController : MonoBehaviour, Ishootable {
 
 		foreach (var enemy in army) 
         {
-            Debug.Log(enemy);
+//            Debug.Log(enemy);
             Vector3 diff = enemy.transform.position - transform.position;
 			float curDistance = diff.sqrMagnitude;
 			if (curDistance < distance) 
@@ -77,6 +75,10 @@ public class unitController : MonoBehaviour, Ishootable {
     }
 
     public void takeDamage(int damage)
-    { }
+    {
+        var stats = this.gameObject.GetComponent<Stats>();
+        if(stats != null)
+		 stats.hit (damage);
+	}
 
 }
