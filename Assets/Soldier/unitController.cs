@@ -6,16 +6,18 @@ public class unitController : MonoBehaviour {
 	public float attackSpeed = 1.0F;
 	public float projectileSpeed = 1.0F;
 	public GameObject projectile;
+    public Transform gunBarrel;
 	public float rangeSQRT = 7.0f;
 
 	private bool attacking;
-	private GameObject target;
 	private float timeSinceLastFire;
 
 
 	// Use this for initialization
 	void Start () {
         timeSinceLastFire = attackSpeed;
+        if (gunBarrel == null)
+            throw new System.Exception("no gunBarrel defined!");
 	}
 	
 	// Update is called once per frame
@@ -31,9 +33,8 @@ public class unitController : MonoBehaviour {
             if (timeSinceLastFire >= attackSpeed)
             {
                 Debug.Log("FIRE");
-				var shot = (GameObject) Instantiate (projectile, this.transform.position, this.transform.rotation);
-				shot.GetComponent<HomingProjectile> ().ttl = 5.0F; 
-				shot.GetComponent<HomingProjectile>().target = this.target;
+				var shot = (GameObject) Instantiate (projectile, gunBarrel.transform.position, this.transform.rotation);
+                shot.GetComponent<projectile>().target = currentTarget;
                 timeSinceLastFire = 0;
 			}
 		}

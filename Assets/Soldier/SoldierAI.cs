@@ -56,6 +56,6 @@ public class SoldierAI : MonoBehaviour, Ishootable {
         }
     }
 
-    void takeDamage(int damage)
+    public void takeDamage(int damage)
     { }
 }

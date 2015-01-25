@@ -10,9 +10,7 @@ public class projectile : MonoBehaviour {
     public GameObject shooter;
 	public int damage = 1;
     public string shooterTag;
-
-	//This is the distance that's allowed for a collision.
-	public float distanceThreshold = 0.5F;
+    public bool homing;
 
 	private float startTime = Time.time;
 	private Vector3 startMarker;
@@ -44,7 +42,13 @@ public class projectile : MonoBehaviour {
 			
 			// Update is called once per frame
 	void Update () {
+
+        if(homing && target != null)
+        {
+            endMarker = target.transform.position;
+        }
 		//Calculate TTL
+        Debug.Log(Time.time - startTime);
 		if (Time.time - startTime >= ttl) {
 			Destroy (this.gameObject);
 		}
@@ -64,6 +68,6 @@ public class projectile : MonoBehaviour {
     void die()
     {
         //maybe particles? //score? //money?
-        GameObject.Destroy(this);
+        GameObject.Destroy(this.gameObject);
     }
 }
