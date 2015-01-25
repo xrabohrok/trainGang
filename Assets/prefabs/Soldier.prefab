@@ -1,33 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &158270
+--- !u!1 &168522
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 458270}
-  - 33: {fileID: 3358272}
-  - 65: {fileID: 6558272}
-  - 23: {fileID: 2358272}
-  - 114: {fileID: 11458270}
-  m_Layer: 10
-  m_Name: Enemy
-  m_TagString: Enemy
+  - 4: {fileID: 468522}
+  - 33: {fileID: 3368524}
+  - 65: {fileID: 6568524}
+  - 23: {fileID: 2368524}
+  - 114: {fileID: 11468520}
+  - 114: {fileID: 11468524}
+  m_Layer: 9
+  m_Name: Soldier
+  m_TagString: Soldier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &158272
+--- !u!1 &168524
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 458272}
-  - 114: {fileID: 11458272}
+  - 4: {fileID: 468524}
+  - 114: {fileID: 11468522}
   m_Layer: 0
   m_Name: Aim
   m_TagString: Untagged
@@ -35,37 +36,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &458270
+--- !u!4 &468522
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158270}
+  m_GameObject: {fileID: 168522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.6499996, y: 2.79999995, z: -5.13999987}
+  m_LocalPosition: {x: 7.34000015, y: 1.85000002, z: -5.11000013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 458272}
+  - {fileID: 468524}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &458272
+--- !u!4 &468524
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158272}
+  m_GameObject: {fileID: 168524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0299999993, y: .889999986, z: -.0500000007}
+  m_LocalPosition: {x: .210000038, y: .0799999237, z: .970000267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 458270}
+  m_Father: {fileID: 468522}
   m_RootOrder: 0
---- !u!23 &2358272
+--- !u!23 &2368524
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158270}
+  m_GameObject: {fileID: 168522}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,53 +81,66 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3358272
+--- !u!33 &3368524
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158270}
+  m_GameObject: {fileID: 168522}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6558272
+--- !u!65 &6568524
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158270}
+  m_GameObject: {fileID: 168522}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11458270
+--- !u!114 &11468520
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158270}
+  m_GameObject: {fileID: 168522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c555e0bd772ee4989082a6a45e2dea, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1769d07ce30d84184d221357e33c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 3
-  projectileSpeed: 7
-  enemyTag: Soldier
-  projectile: {fileID: 151098, guid: b365e4e81266582428a93cbe592dd6b8, type: 2}
-  gunBarrel: {fileID: 458272}
-  rangeSQRT: 100.330002
---- !u!114 &11458272
+  speed: 1
+  stopDist: .100000001
+--- !u!114 &11468522
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158272}
+  m_GameObject: {fileID: 168524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f942ecefa77ff64d9f7174ce31be8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11468524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c555e0bd772ee4989082a6a45e2dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  projectileSpeed: 1
+  enemyTag: Enemy
+  projectile: {fileID: 155776, guid: 754318c0a947df34eaa1b3c22704536f, type: 2}
+  gunBarrel: {fileID: 468524}
+  rangeSQRT: 47.2999992
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -136,6 +150,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 158270}
+  m_RootGameObject: {fileID: 168522}
   m_IsPrefabParent: 1
   m_IsExploded: 1
