@@ -52,7 +52,7 @@ public class projectile : MonoBehaviour {
             endMarker = target.transform.position;
         }
 		//Calculate TTL
-        Debug.Log(Time.time - startTime);
+//        Debug.Log(Time.time - startTime);
 		if (Time.time - startTime >= ttl) {
 			Destroy (this.gameObject);
 		}

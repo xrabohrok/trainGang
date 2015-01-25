@@ -57,5 +57,11 @@ public class SoldierAI : MonoBehaviour, Ishootable {
     }
 
     public void takeDamage(int damage)
-    { }
+    { 
+		var stats = this.gameObject.GetComponent<Stats> ();
+		stats.hit (damage);
+		//if (stats.dead == true)
+			//GameObject.Find ("SoldierController").GetComponent<SoldierSwarm> ().deregisterSolder (this);
+
+	}
 }

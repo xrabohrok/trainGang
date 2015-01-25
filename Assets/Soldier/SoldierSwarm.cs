@@ -32,6 +32,11 @@ public class SoldierSwarm : MonoBehaviour {
         allSoldiers.Add(me);
     }
 
+	public void deregisterSolder(SoldierAI me)
+	{
+		allSoldiers.Remove(me);
+	}
+
     private void handleSoldierSelection()
     {
         if (Input.GetMouseButtonDown(0))
