@@ -6,6 +6,7 @@ public class unitController : MonoBehaviour {
 	public float attackSpeed = 1.0F;
 	public float projectileSpeed = 1.0F;
 	public GameObject projectile;
+	public float range = 7.0f;
 
 	private bool attacking;
 	private GameObject target;
@@ -19,6 +20,21 @@ public class unitController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		//Check for enemies to attack.
+		GameObject obj = FindClosestEnemy ();
+		Debug.Log (obj.name.ToString ());
+
+
+		if (!obj) {
+			this.attacking = true;
+			this.target = obj;
+		}
+		else{
+			this.attacking = false;
+			this.target = null;
+		}
+
 		x += Time.deltaTime;
 		
 		if (attacking) {
@@ -31,6 +47,24 @@ public class unitController : MonoBehaviour {
 				x = 0.0F;
 			}
 		}
+	}
+
+	//returns the closest obj with given tag.
+	GameObject FindClosestEnemy() {
+		GameObject[] gos;
+		gos = GameObject.FindGameObjectsWithTag("Enemy");
+		GameObject closest = null;
+		float distance = Mathf.Infinity;
+		Vector3 position = transform.position;
+		foreach (GameObject go in gos) {
+			Vector3 diff = go.transform.position - position;
+			float curDistance = diff.sqrMagnitude;
+			if (curDistance < distance) {
+				closest = go;
+				distance = curDistance;
+			}
+		}
+		return closest;
 	}
 
 	void OnTriggerEnter(Collider other) {
