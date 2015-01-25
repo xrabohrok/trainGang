@@ -13,12 +13,18 @@ public class unitController : MonoBehaviour, Ishootable {
 	private bool attacking;
 	private float timeSinceLastFire;
 
+    private Animation anim;
+
 
 	// Use this for initialization
 	void Start () {
         timeSinceLastFire = attackSpeed;
         if (gunBarrel == null)
             throw new System.Exception("no gunBarrel defined!");
+
+        anim = this.GetComponentInChildren<Animation>();
+        if (anim == null)
+            throw new System.Exception("No animator!");
 	}
 	
 	// Update is called once per frame
@@ -36,6 +42,8 @@ public class unitController : MonoBehaviour, Ishootable {
 				var shot = (GameObject) Instantiate (projectile, gunBarrel.transform.position, this.transform.rotation);
                 shot.GetComponent<projectile>().target = currentTarget;
                 timeSinceLastFire = 0;
+
+                anim.Blend("Fire", .5f);
 			}
 		}
 
