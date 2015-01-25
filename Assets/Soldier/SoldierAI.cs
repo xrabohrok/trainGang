@@ -24,6 +24,7 @@ public class SoldierAI : MonoBehaviour, Ishootable {
             //rotate
             var newRotation = Vector3.RotateTowards(this.transform.forward, targetLocation, Mathf.PI, Mathf.PI);
             this.transform.rotation = Quaternion.LookRotation(newRotation);
+            this.transform.LookAt(targetLocation, Vector3.up);
 
             //move
             var step = speed * Time.deltaTime;
